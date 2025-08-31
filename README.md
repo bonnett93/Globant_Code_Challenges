@@ -21,5 +21,5 @@ This is the structure to solve the requirements
 ## Requirements
 All dependencies are listed in `requirements.txt`.
 
-## Deploy
+## Deploy app
 uvicorn app.main:app --reload
