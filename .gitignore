@@ -9,3 +9,6 @@ __pycache__/
 
 #pycharm
 .idea/
+
+# test_db
+test_database.db
