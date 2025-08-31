@@ -1,0 +1,11 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python compiled bytecode
+__pycache__/
+*.pyc
+
+#pycharm
+.idea/
