@@ -19,3 +19,9 @@ There is 4 principal directories which solve each requirement for Challenge #1
 
 **4_restore_table_from_AVRO_backup** Contains the solution for: Create a feature to restore a certain table with its backup.
 
+
+---
+## Challenge #2
+
+The directory challenge 2 contains the queries to answer te requeriments
+
