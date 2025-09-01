@@ -7,7 +7,13 @@ class HiringEmployee(SQLModel, table=True):
 
     id: Optional[int] = Field(primary_key=True, unique=True, index=True)
     name: str = Field(nullable=False)
-    id_doc: str = Field(nullable=False)
-    datetime: datetime  = Field(nullable=False)
-    department_id: str = Field(nullable=False, foreign_key="departments.id")
+    created_at: datetime = Field(nullable=False, alias="datetime")
+    department_id: int = Field(nullable=False, foreign_key="departments.id")
     job_id: int = Field(nullable=False, foreign_key="jobs.id")
+
+
+class HiringEmployeeCreate(SQLModel):
+    name: str
+    datetime: datetime
+    department_id: int
+    job_id: int
