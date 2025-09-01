@@ -30,3 +30,5 @@ async def create_department(department: DepartmentCreate, session: SessionDep):
     session.refresh(new_department)
 
     return new_department
+
+
