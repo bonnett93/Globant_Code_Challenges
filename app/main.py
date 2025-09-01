@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
 from app.api.v1.routers import departments, hired_employees, jobs
+from app.core.logging_config import logger
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -17,6 +18,16 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+@app.middleware("http")
+async def log_requests(request: Request, call_next):
+    try:
+        response = await call_next(request)
+        logger.info(f"{request.method} {request.url} -> {response.status_code}\n{response}")
+        return response
+    except Exception as e:
+        logger.error(f"Error en {request.method} {request.url}: {e}")
+        raise e
 
 app.include_router(departments.router,
                    prefix=settings.API_V1_STR,

@@ -1,6 +1,5 @@
 from fastapi import APIRouter, status, HTTPException
 from typing import List
-from sqlmodel import select
 
 from app.core.database import SessionDep
 from app.models.hired_employees import HiringEmployee, HiringEmployeeCreate

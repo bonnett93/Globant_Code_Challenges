@@ -12,3 +12,6 @@ __pycache__/
 
 # test_db
 test_database.db
+
+#logs
+app.log
