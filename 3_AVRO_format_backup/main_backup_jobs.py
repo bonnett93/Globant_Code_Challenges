@@ -4,11 +4,11 @@ from fastavro import writer, parse_schema
 import io
 
 
+PROJECT_ID = "nombre_de_tu_bd"
 DB_NAME = "nombre_de_tu_bd"
 DB_USER = "usuario_bd"
 DB_PASSWORD = "tu_password"
-PROJECT_ID = "nombre_de_tu_bd"
-CLOUD_SQL_HOST = f"/cloudsql/{PROJECT_ID}:us-west1:globant_resources"
+CLOUD_SQL_HOST = f"/cloudsql/{PROJECT_ID}:us-west1:globant-resources"
 TABLE_NAME = "jobs"
 GCS_BUCKET_NAME = "human_resources_raw_backup"
 GCS_FILE_NAME = "backup_jobs.avro"

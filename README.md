@@ -3,7 +3,13 @@
 
 This repository contains the **Proof of Concept (PoC)** for solving **Challenge #1** of the Globant Coding Challenge.
 
+Ensure you have GCP SDK installed
+
+    gcloud auth login --update-adc
+    gcloud auth application-default login
+
 ---
+
 ## Challenge #1
 
 ### Structure

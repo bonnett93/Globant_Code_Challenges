@@ -7,14 +7,15 @@ We select postgres sql with cloud sql as new db
 Optional: Confirm user and project
 - gcloud auth list
 - gcloud config list project
+- gcloud config set project project_id
 
 ---
 
-1. **Create Cloud SQL instance with postgres:** Use gcp shell
+1. **Create Cloud SQL instance with postgresql:** Use gcp shell
     
-        gcloud sql instances create globant_resources \
+        gcloud sql instances create globant-resources \
             --database-version=POSTGRES_13 --cpu=2 --memory=8GiB \
-            --region="us-west1" --root-password=Passw0rd
+            --region="europe-west1" --root-password=Passw0rd
 
 2. **ENV Variables**: Create an environment variable with the Cloud Shell IP address.
 
@@ -22,12 +23,12 @@ Optional: Confirm user and project
 
          export ADDRESS=$(curl -s http://ipecho.net/plain)/32
          
-         gcloud sql instances patch globant_resources --authorized-networks $ADDRESS
+         gcloud sql instances patch globant-resources --authorized-networks $ADDRESS
 
-3. **Create DB and Tables**: In the GCP console go to sql, select globant_resources instance 
+3. **Create DB and Tables**: In the GCP console go to sql, select globant-resources instance 
    - Create a new DB: Go to database, then new, and call it **"human_resources"**
    - To create table: Go to Overview, then import, In Browse select local machine and upload create_tables.sql file,
-   select SQL as File format, globant_resources as destination
+   select SQL as File format, globant-resources as destination
 
 4. **Import Data**:
    - Again in Overview, then import, this time CSV as File format.
