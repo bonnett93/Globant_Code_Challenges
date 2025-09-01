@@ -10,11 +10,11 @@ Optional: Confirm user and project
 
 ---
 
-1. **Create Cloud SQL instance with postgres:** Use gcp shell or gcloud CLI
+1. **Create Cloud SQL instance with postgres:** Use gcp shell
     
         gcloud sql instances create globant_resources \
             --database-version=POSTGRES_13 --cpu=2 --memory=8GiB \
-            --region="REGION" --root-password=Passw0rd
+            --region="us-west1" --root-password=Passw0rd
 
 2. **ENV Variables**: Create an environment variable with the Cloud Shell IP address.
 
@@ -25,7 +25,7 @@ Optional: Confirm user and project
          gcloud sql instances patch globant_resources --authorized-networks $ADDRESS
 
 3. **Create DB and Tables**: In the GCP console go to sql, select globant_resources instance 
-   - Create a new DB: Go to database, then new, and call it human_resources
+   - Create a new DB: Go to database, then new, and call it **"human_resources"**
    - To create table: Go to Overview, then import, In Browse select local machine and upload create_tables.sql file,
    select SQL as File format, globant_resources as destination
 
@@ -33,4 +33,3 @@ Optional: Confirm user and project
    - Again in Overview, then import, this time CSV as File format.
    - Browse the storage bucket the files are, select one, link with it table
    - repeat for other 2 files
-   
