@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from app.core.config import settings
-from app.api.v1.routers import departments, hired_employees
+from app.api.v1.routers import departments, hired_employees, jobs
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
@@ -26,6 +26,10 @@ app.include_router(departments.router,
 app.include_router(hired_employees.router,
                    prefix=settings.API_V1_STR,
                    tags=["hired_employees"])
+
+app.include_router(jobs.router,
+                   prefix=settings.API_V1_STR,
+                   tags=["jobs"])
 
 @app.get("/")
 def root():

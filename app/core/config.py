@@ -2,6 +2,7 @@ import os
 from typing import List
 from pydantic_settings import BaseSettings
 
+
 class Settings(BaseSettings):
     PROJECT_NAME: str = "Globant-Proposal_coding_challenge"
     PROJECT_VERSION: str = "0.1.0"

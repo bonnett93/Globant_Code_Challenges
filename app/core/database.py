@@ -4,7 +4,6 @@ from fastapi import Depends
 from sqlmodel import create_engine, Session, SQLModel
 
 from app.core.config import settings
-from app.models import departments, hired_employees, jobs
 
 environment = os.getenv("ENVIRONMENT")
 engine = create_engine(settings.DATABASE_URL, connect_args={"check_same_thread": False})

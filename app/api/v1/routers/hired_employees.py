@@ -1,7 +1,7 @@
 from fastapi import APIRouter, status
 
-from app.models.hired_employees import HiringEmployee, HiringEmployeeCreate
 from app.core.database import SessionDep
+from app.models.hired_employees import HiringEmployee, HiringEmployeeCreate
 
 
 router = APIRouter()

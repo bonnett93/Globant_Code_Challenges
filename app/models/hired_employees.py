@@ -2,6 +2,7 @@ from typing import Optional
 from sqlmodel import SQLModel, Field
 from datetime import datetime
 
+
 class HiringEmployee(SQLModel, table=True):
     __tablename__ = 'hired_employees'
 
