@@ -15,7 +15,7 @@ So allow methods: POST
 
 to use CloudSQL: Use one of this options as DATABASE_URL env var
 
-        postgresql://usuario:password@cloud-sql_ip:db_port/db_name
+        postgresql+psycopg2://usuario:password@cloud-sql_ip:db_port/db_name
         mysql+pymysql://user:password@cloud-sql_ip/db_name
 
 postgresql conventional port is 5432, and requires install psycopg or psycopg2

@@ -1,6 +1,12 @@
--- Number of employees hired for each job and department in 2021 divided by quarter. The
---  table must be ordered alphabetically by department and job
+# example to run requeriments with OMR
+from sqlmodel import create_engine, Session, text
 
+
+engine = create_engine("postgresql+psycopg2://postgres:1q2w3e4r5t@:5432/globant_resources")
+engine.connect()
+session = Session(bind=engine)
+
+query = """
 SELECT department, job,
     COUNT(CASE WHEN EXTRACT(QUARTER FROM created_at) = 1 THEN he.id END) as Q1,
     COUNT(CASE WHEN EXTRACT(QUARTER FROM created_at) = 2 THEN he.id END) as Q2,
@@ -12,11 +18,11 @@ FROM hired_employees as he
     WHERE EXTRACT(YEAR FROM he.created_at) = 2021
     GROUP BY d.department, j.job
     ORDER BY d.department, j.job;
+"""
+result = session.exec(text(query)).fetchall()
 
--- List of ids, name and number of employees hired of each department that hired more
---  employees than the mean of employees hired in 2021 for all the departments, ordered
---  by the number of employees hired (descending).
 
+query2 = """
 with deparment_counter as (
     SELECT department_id, department, COUNT(he.id) as hired,
     AVG(COUNT(he.id)) OVER() as hired_mean
@@ -29,3 +35,7 @@ SELECT department_id, department, hired
 FROM deparment_counter
 WHERE hired > hired_mean
 ORDER BY 3 DESC
+"""
+result2 = session.exec(text(query2)).fetchall()
+# session.rollback()
+session.close()

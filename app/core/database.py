@@ -6,7 +6,11 @@ from sqlmodel import create_engine, Session, SQLModel
 from app.core.config import settings
 
 environment = os.getenv("ENVIRONMENT")
-engine = create_engine(settings.DATABASE_URL, connect_args={"check_same_thread": False})
+if "sqlite" in environment:
+    engine = create_engine(settings.DATABASE_URL, connect_args={"check_same_thread": False})
+else:
+    engine = create_engine(settings.DATABASE_URL)
+
 
 def create_db_and_tables():
     """

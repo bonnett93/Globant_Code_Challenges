@@ -9,7 +9,7 @@ class HiringEmployee(SQLModel, table=True):
 
     id: Optional[int] = Field(primary_key=True, unique=True, index=True)
     name: str = Field(nullable=False)
-    created_at: datetime = Field(nullable=False, alias="datetime")
+    datetime: datetime = Field(nullable=False, alias="datetime")
     department_id: int = Field(nullable=False, foreign_key="departments.id")
     job_id: int = Field(nullable=False, foreign_key="jobs.id")
 

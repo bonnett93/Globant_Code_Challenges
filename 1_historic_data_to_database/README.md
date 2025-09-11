@@ -1,5 +1,17 @@
 ### Migration Steps
 
+Here I developed two diferent scenarios to perform a migration
+
+1. Local migration with SQLite
+2. Cloud Migration with SQLCloud
+
+# 1. Local migration with SQLite
+
+The file upload_csv_to_sqlite.py is a script for uploading CSVs to SQLite.
+It handles the null values in the hired_employees file by simply ignoring them.
+
+# 2. Cloud Migration with SQLCloud
+
 We assume we transfer old db daba to csv and store in gcp cloud storage.
 
 We select postgres sql with cloud sql as new db
@@ -13,7 +25,7 @@ Optional: Confirm user and project
 
 1. **Create Cloud SQL instance with postgresql:** Use gcp shell
     
-        gcloud sql instances create globant-resources \
+        gcloud sql instances create globant_resources \
             --database-version=POSTGRES_13 --cpu=2 --memory=8GiB \
             --region="europe-west1" --root-password=Passw0rd
 
